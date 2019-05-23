@@ -208,7 +208,7 @@ created() {
 		v : "1.0"
 	})).then(res => {
 		// console.log(res);
-		this.infos = res.notice;
+		this.infos = res.resultData.notice;
 		// console.log(this.infos);
 	}).catch(err => {
 		console.log(err);
@@ -232,8 +232,8 @@ created() {
 		v : "1.0"
 	})).then(res => {
 		// console.log(res);
-		this.lists = res.items;
-		this.imagePrefix = res.imagePrefix;
+		this.lists = res.resultData.items;
+		this.imagePrefix = res.resultData.imagePrefix;
 		// console.log(this.imagePrefix);
 		// console.log(this.lists);
 	}).catch(err => {

@@ -8,10 +8,10 @@
 			</div>
 			<input type="file" accept="image/*" @change="handleFile" class="hiddenInput"/>
 			<div class="personalInfo" v-show="showUp">
-				<p class="name">张三</p>
+				<!-- <p class="name">张三</p> -->
 				<p class="phone"><span></span>188856923271</p>
 			</div>
-			<div class="clickLogin">
+			<div class="clickLogin" v-show="!showUp">
 				<router-link to="/login">请点击登录</router-link>
 			</div>
 		</div>
@@ -74,6 +74,7 @@ export default {
 	  userInfo: {
 	    avatar: require('../assets/images/head_02.png')
 	  },
+	  mobile:''
     }
   },
   components: {
@@ -95,6 +96,14 @@ export default {
       }
       reader.readAsDataURL(file)
     }
+  },
+  created() {
+	  this.mobile = localStorage.getItem("mobile");
+	  if(this.mobile != null){
+		  this.showUp = true;
+	  }else{
+		  this.showUp = false;
+	  }
   }
 }
 </script>

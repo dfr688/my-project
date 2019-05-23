@@ -26,7 +26,7 @@ export default{
 		return new Promise((resolve,reject) => {
 				if(type === "post"){
 					Axios.post(url,data).then(res => {
-						resolve(res.data.resultData);
+						resolve(res.data);
 						// console.log(res);
 					}).catch(err =>{
 						reject(err);

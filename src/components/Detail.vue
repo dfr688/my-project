@@ -95,7 +95,7 @@ export default {
 				v : "1.0"
 			})).then(res => {
 				// console.log(res);
- 				this.all = res;
+ 				this.all = res.resultData;
 				// console.log(this.all);
 			}).catch(err => {
 				console.log(err)

@@ -80,8 +80,8 @@ export default {
 				v : "1.0"
 			})).then(res => {
 				// console.log(res);
-				this.imgIp = res.imagePrefix;
-				this.itemLists = res.items;
+				this.imgIp = res.resultData.imagePrefix;
+				this.itemLists = res.resultData.items;
 				// console.log(this.itemLists);
 			}).catch(err => {
 				console.log(err)
@@ -97,8 +97,8 @@ export default {
 				v : "1.0"
 			})).then(res => {
 				// console.log(res);
-				this.imgIp = res.imagePrefix;
-				this.itemLists = res.items;
+				this.imgIp = res.resultData.imagePrefix;
+				this.itemLists = res.resultData.items;
 			}).catch(err => {
 				console.log(err)
 			});// 无视黑白 发送请求
@@ -113,8 +113,8 @@ export default {
 				v : "1.0"
 			})).then(res => {
 				// console.log(res);
-				this.imgIp = res.imagePrefix;
-				this.itemLists = res.items;
+				this.imgIp = res.resultData.imagePrefix;
+				this.itemLists = res.resultData.items;
 			}).catch(err => {
 				console.log(err)
 			});//芝麻分贷 发送请求
@@ -129,8 +129,8 @@ export default {
 				v : "1.0"
 			})).then(res => {
 				// console.log(res);
-				this.imgIp = res.imagePrefix;
-				this.itemLists = res.items;
+				this.imgIp = res.resultData.imagePrefix;
+				this.itemLists = res.resultData.items;
 			}).catch(err => {
 				console.log(err)
 			});

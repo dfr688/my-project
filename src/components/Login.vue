@@ -90,7 +90,7 @@ export default {
 			  	sign : sign1,
 			  	v : "1.0"
 			  })).then(res => {
-			  	console.log(res);
+			  	console.log(res.result);
 			  }).catch(err => {
 			  	console.log(err)
 			  });
@@ -119,8 +119,8 @@ export default {
 			  	v : "1.0"
 			  })).then(res => {
 			  	console.log(res);
-				// const userInfo = res.mobile + res.sessionId;
-				// localStorage.setItem("user",userInfo);
+				localStorage.setItem("mobile",res.resultData.mobile);
+				localStorage.setItem("sessionId",res.resultData.sessionId);
 				this.$router.push('/my');
 			  }).catch(err => {
 			  	console.log(err)
