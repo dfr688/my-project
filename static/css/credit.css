@@ -1,0 +1,39 @@
+.Credit{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	background: #fff;
+	z-index: 999;
+}
+.Credit .detailInfo ul{
+	margin: 0 .4rem;
+}
+.Credit .detailInfo ul li{
+	display: flex;
+	font-size: .32rem;
+	color: #333;
+	margin-top: .3rem;
+	padding-bottom: .3rem;
+	border-bottom: 1px solid #f6f7f7;
+}
+.Credit .detailInfo ul li p{
+	flex: 2;
+}
+.Credit .detailInfo ul li div input{
+	font-size: .32rem;
+	color: #333;
+	text-align: right;
+}
+.Credit .detailInfo ul li div{
+	flex: 2;
+	text-align: right;
+}
+.Credit .detailInfo ul li .marriage input{
+	margin-left: .2rem;
+}
+.Credit .detailInfo ul li .debt input{
+	margin-left: .2rem;
+}

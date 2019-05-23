@@ -1,0 +1,34 @@
+.About{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	background: #fff;
+	z-index: 999;
+}
+.About .version{
+	text-align: center;
+}
+.About .version .icon{
+	height: 1.4rem;
+	margin-bottom: .2rem;
+}
+.About .version .icon img{
+	width: 1.4rem;
+	height: 1.4rem;
+}
+.About .version p{
+	font-size: .32rem;
+	color: #333;
+}
+.About .msg{
+	font-size: .26rem;
+	color: #333;
+	text-align: center;
+	margin-top: .7rem;
+}
+.About .msg p{
+	margin-bottom: .4rem;
+}

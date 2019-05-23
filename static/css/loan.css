@@ -1,0 +1,123 @@
+/*搜索与筛选 */
+.Loan{
+	background: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.Loan .choose{
+	height: 2.3rem;
+}
+.Loan .contain{
+	width: 100%;
+	height: 2.3rem;
+	background: #fff;
+	box-shadow: 0px 6px 5px 1px rgba(58, 58, 58, 0.15);
+	padding: 0 .4rem .36rem .4rem;
+	box-sizing: border-box;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+/* .Loan .contain .search{
+	text-align: right;
+	position: relative;
+}
+.Loan .contain .search .back{
+	display: inline-block;
+	width: .23rem;
+	height: .42rem;
+	background: url(../../src/assets/images/back.png) no-repeat left top;
+	background-size: 100%;
+	position: absolute;
+	top: .74rem;
+	left: 0;
+}
+.Loan .contain .search input{
+	width: 6.2rem;
+	height: .6rem;
+	line-height: .6rem;
+	border-radius: .3rem;
+	background: #eee;
+	padding-left: 1.02rem;
+	box-sizing: border-box;
+	font-size: .28rem;
+	margin-top: .65rem;
+}
+.Loan .contain .search .loupe{
+	display: inline-block;
+	width: .36rem;
+	height: .36rem;
+	background: url(../../src/assets/images/search.png) no-repeat left top;
+	background-size: 100%; 
+	position: absolute;
+	top: .8rem;
+	left: .77rem;
+} */
+.Loan .contain .screen{
+	margin-top: -.26rem;
+}
+.Loan .contain .screen .wrap{
+	display: flex;
+	position: relative;
+}
+.Loan .contain .screen .wrap>li{
+	flex: 1;
+	text-align: center;
+	height: .5rem;
+	line-height: .5rem;
+	font-size: .36rem;
+}
+.Loan .contain .screen .wrap>li input{
+	font-size: .32rem;
+	color: #000;
+	width: 1.2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.Loan .contain .screen .wrap .one{
+	text-align: left;
+}
+.Loan .contain .screen .wrap .three{
+	text-align: right;
+}
+.Loan .contain .screen .wrap>li span{
+	
+}
+.Loan .contain .screen .wrap>li i{
+	display: inline-block;
+	width: .23rem;
+	height: .13rem;
+	background: url(../../src/assets/images/rocket.png) no-repeat left top;
+	background-size: 100%;
+	margin-left: .05rem;
+	margin-bottom: .05rem;
+}
+.Loan .contain .screen .wrap>li div{
+	background: #fff;
+	text-align: center;
+	width: 2.2rem;
+}
+.Loan .contain .screen .wrap>li div ul li{
+	font-size: .32rem;
+	color: #333;
+	margin-top: .05rem;
+}
+.Loan .contain .screen .wrap .one div{
+	position: absolute;
+	top: .6rem;
+	left: -.7rem;
+}
+.Loan .contain .screen .wrap .two div{
+	position: absolute;
+	top: .6rem;
+	left: 1.8rem;
+}
+.Loan .contain .screen .wrap .three div{
+	position: absolute;
+	top: .6rem;
+	right: .1rem;
+}

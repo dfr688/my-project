@@ -1,0 +1,96 @@
+.Suggest{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	background: #fff;
+	z-index: 999;
+}
+.Suggest .type{
+	width: 6.7rem;
+	height: 2rem;
+	box-shadow: 0px 4px 22px 2px rgba(58, 58, 58, 0.15);
+	border-radius: .1rem;
+	margin: 0 auto;
+	padding-top: .4rem;
+	padding-left: .22rem;
+	box-sizing: border-box;
+}
+.Suggest .type p{
+	font-size: .36rem;
+	color: #333;
+	font-weight: bold;
+}
+.Suggest .type div{
+	font-size: .32rem;
+	color: #333;
+	margin-top: .3rem;
+}
+.Suggest .type div input{
+	margin-right: .1rem;
+}
+.Suggest .type div label{
+	margin-right: 1.2rem;
+}
+.Suggest .feedback{
+	width: 6.7rem;
+	height: 5.09rem;
+	box-shadow: 0px 4px 22px 2px rgba(58, 58, 58, 0.15);
+	border-radius: .1rem;
+	margin: 0 auto;
+	margin-top: .22rem;
+	margin-bottom: .22rem;
+	padding: .4rem .22rem;
+	box-sizing: border-box;
+}
+.Suggest .feedback p{
+	font-size: .36rem;
+	color: #333;
+	font-weight: bold;
+}
+.Suggest .feedback div{
+	font-size: .3rem;
+	margin-top: .3rem;
+}
+.Suggest .feedback div textarea{
+	width: 100%;
+	font-size: .3rem;
+}
+.Suggest .contact{
+	width: 6.7rem;
+	height: 2rem;
+	box-shadow: 0px 4px 22px 2px rgba(58, 58, 58, 0.15);
+	border-radius: .1rem;
+	margin: 0 auto;
+	padding: .4rem .22rem;
+	box-sizing: border-box;
+}
+.Suggest .contact p{
+	font-size: .36rem;
+	color: #333;
+	font-weight: bold;
+}
+.Suggest .contact div{
+	margin-top: .3rem;
+	font-size: .3rem;
+}
+.Suggest .contact div input{
+	font-size: .3rem;
+	width: 100%;
+}
+.Suggest .btn{
+	font-size: .36rem;
+	margin-top: .52rem;
+	text-align: center;
+}
+.Suggest .btn button{
+	width: 6.7rem;
+	height: 1rem;
+	background-image: linear-gradient(-90deg, #443ded 0%, #524bf6 100%), linear-gradient(#fff, #fff);
+	box-shadow: 0px 6px 21px 3px rgba(0, 0, 0, 0.15);
+	border-radius: .5rem;
+	font-size: .36rem;
+	color: #fff;
+}

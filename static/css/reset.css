@@ -1,0 +1,86 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li,
+ pre, form, fieldset, legend, button, input, textarea, th, td ,tr{ 
+	margin: 0; 
+	padding: 0;
+}
+*{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+	outline:none;
+	background: none;
+}
+body{
+	font-family: PingFang SC Medium;
+	background: #f3f3f3; 
+	color: #000;
+}
+/* a{
+    text-decoration: none;
+} */
+/* 去掉a标签点击时的背景色 */
+/* a:hover{
+    -webkit-tap-highlight-color: transparent;
+} */
+a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+    background: none;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after {
+ 	content: ''; 
+ 	display: block; 
+ 	height: 0; 
+ 	clear: both; 
+ }
+.hide{
+	display: none!important;
+}
+input,button{
+	border: none;
+	outline: none;
+}
+button{
+	background: none;
+}
+textarea{
+	border: none;
+	outline: none;
+}
+/* 修改单选框的默认样式 */
+input[type='radio']{
+    display:none; 
+}
+input[type='radio'] + label:before{
+	content: "";
+    display: inline-block;
+    width: 0.28rem;
+    height: 0.28rem;
+    margin-right: .1rem;
+	background: url(../../src/assets/images/unchecked.png) no-repeat left top;
+	background-size: 100%;
+}
+ 
+input[type='radio']:checked+label:before{
+   	background: url(../../src/assets/images/checked.png) no-repeat left top;
+   	background-size: 100%;
+}
+label{
+	margin-left: .1rem;
+}
+
+
+.picker-slot{
+		text-align: center!important;
+		font-size: .3rem!important;
+	}

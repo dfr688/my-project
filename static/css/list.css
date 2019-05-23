@@ -1,0 +1,90 @@
+.listing{
+	padding-bottom: .28rem;
+}
+.listing ul li{
+	background: #fff;
+	padding: 0 .4rem;
+	margin-top: .2rem;
+}
+.listing ul li a{
+	display: flex;
+}
+.listing ul li:last-child{
+	margin-bottom: 1.2rem;
+}
+.listing ul li.listItem{
+	margin-top: .2rem;
+}
+.listing ul li .picture{
+	flex: 1;
+}
+.listing ul li .picture div{
+	width: .8rem;
+	height: .8rem;
+}
+.listing ul li .picture img{
+	width: .8rem;
+	height: .8rem;
+}
+.listing ul li .intro{
+	display: flex;
+	padding-bottom: .15rem;
+	margin-top: .2rem;
+	flex: 5.5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.listing ul li .introYes{
+	border-bottom:none;
+}
+.listing ul li .intro .message{
+	flex: 3;
+}
+.listing ul li .intro .message .zfb{
+	font-size: .32rem;
+	color: #0a0a0a;
+	font-weight: bold;
+	margin-bottom: .16rem;
+}
+.listing ul li .intro .message .date{
+	font-size: .24rem;
+	color: #666;
+	margin-bottom: .2rem;
+}
+.listing ul li .intro .message .tips{
+	font-size: .2rem;
+	color: #333;
+	background: #eee;
+	width: 4rem;
+	height: .3rem;
+	text-align: center;
+	line-height: .3rem;
+	border-radius: .05rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.listing ul li .intro .apply{
+	flex: 1;
+	text-align: right;
+}
+.listing ul li .intro .apply .most{
+	font-size: .22rem;
+	color: #666;
+}
+.listing ul li .intro .apply .money{
+	font-size: .28rem;
+	color: #ff0000;
+	margin-bottom: -.6rem;
+	margin-top: .1rem;
+}
+.listing ul li .intro .apply a{
+	color: #fff;
+	font-size: .24rem;
+	display: inline-block;
+	width: 1.27rem;
+	height: .45rem;
+	line-height: .45rem;
+	text-align: center;
+	background-image: linear-gradient(0deg, #433ded 0%, #524bf6 100%), linear-gradient(#398de3, #398de3);
+	border-radius: .23rem;
+}

@@ -1,0 +1,27 @@
+.Problem{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	background: #fff;
+	z-index: 999;
+}
+.Problem ul{
+	margin: 0 .4rem;
+}
+.Problem ul li{
+	margin-top: .3rem;
+	padding-bottom: .3rem;
+	border-bottom: 1px solid #f6f7f7;
+}
+.Problem ul li p{
+	font-size: .32rem;
+	color: #333;
+}
+.Problem ul li div{
+	font-size: .26rem;
+	color: #999;
+	margin-top: .3rem;
+}

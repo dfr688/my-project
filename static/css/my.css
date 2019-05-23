@@ -1,0 +1,133 @@
+.my{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+}
+.my .headPortrait{
+	display: flex;
+	margin-top: .58rem;
+	margin-left: .4rem;
+}
+.my .headPortrait .image{
+	width: 1.4rem;
+	height: 1.4rem;
+	margin-right: .34rem;
+	border-radius: 1rem;
+}
+.my .headPortrait .image img{
+	width: 1.4rem;
+	height: 1.4rem;
+	border-radius: 1rem;
+}
+.my .headPortrait .hiddenInput{
+	display: none;
+}
+.my .headPortrait .personalInfo{
+	margin-top: .1rem;
+}
+.my .headPortrait .personalInfo .name{
+	font-size: .36rem;
+	color: #333;
+	margin-bottom: .2rem;
+}
+.my .headPortrait .personalInfo .phone{
+	font-size: .28rem;
+	color: #333;
+}
+.my .headPortrait .personalInfo .phone span{
+	display: inline-block;
+	width: .25rem;
+	height: .35rem;
+	border: 1px solid #eee;
+	margin-right: .1rem;
+}
+.my .headPortrait .clickLogin{
+	font-size: .36rem;
+	margin-top: .4rem;
+}
+.my .headPortrait .clickLogin a{
+	font-size: .36rem;
+	color: #333;
+}/* 
+.my .means ul{
+	display: flex;
+	margin: .48rem .4rem .2rem .4rem;
+}
+.my .means ul li{
+	width: 3.2rem;
+	height: 1.4rem;
+	position: relative;
+}
+.my .means ul .personalIntro{
+	background-image: linear-gradient(45deg, #feac7a 0%, #fc6c6b 100%), linear-gradient(#d2d6d5, #d2d6d5);
+	border-radius: .1rem;
+	margin-right: .3rem;
+}
+.my .means ul .creditIntro{
+	background-image: linear-gradient(45deg, #58abd5 0%, #1c4be3 100%), linear-gradient(#d2d6d5, #d2d6d5);
+	border-radius: .1rem;
+}
+.my .means ul li a{
+	font-size: .32rem;
+	color: #fff;
+	position: absolute;
+	top: .24rem;
+	left: .22rem;
+	width: 100%;
+	height: 100%;
+}
+.my .means ul .personalIntro a span{
+	display: inline-block;
+	width: .4rem;
+	height: .4rem;
+	background: url(../../src/assets/images/pg_press04.png) no-repeat left top;
+	background-size: 100%;
+}
+.my .means ul .creditIntro a span{
+	display: inline-block;
+	width: .4rem;
+	height: .4rem;
+	background: url(../../src/assets/images/pg_press04.png) no-repeat left top;
+	background-size: 100%;
+} */
+.my .sort{
+	margin-top: 1rem;
+}
+.my .sort ul li{
+	margin: .45rem .4rem .35rem .4rem;
+	border-bottom: 1px solid #f6f7f7;
+	padding-bottom: .34rem;
+}
+.my .sort ul li a{
+	font-size: .32rem;
+	color: #333;
+}
+.my .sort ul li a i{
+	width: .4rem;
+	height: .4rem;
+	margin-top: .03rem;
+}
+.my .sort ul li a .iconOne{
+	background: url(../../src/assets/images/icon_01.png) no-repeat left top;
+	background-size: 100%;
+}
+.my .sort ul li a .iconTwo{
+	background: url(../../src/assets/images/icon_02.png) no-repeat left top;
+	background-size: 100%;
+}
+.my .sort ul li a .iconThree{
+	width: .32rem;
+	background: url(../../src/assets/images/icon_03.png) no-repeat left top;
+	background-size: 100%;
+}
+.my .sort ul li a .iconFour{
+	background: url(../../src/assets/images/icon_04.png) no-repeat left top;
+	background-size: 100%;
+}
+.my .sort ul li a .iconFive{
+	background: url(../../src/assets/images/icon_05.png) no-repeat left top;
+	background-size: 100%;
+}
