@@ -1,7 +1,7 @@
 <template>
   <div class="Login">
 		<div class="headImg">
-			<img src="../assets/images/head_01.png" alt="">
+			<img src="../assets/images/head_02.png" alt="">
 		</div>
 		<ul>
 			<li>
@@ -21,6 +21,7 @@
 					</div>
 				</div>
 				<i v-show="tip3">验证码不能为空</i>
+				<i v-show="tip4">请输入正确的验证码</i>
 			</li>
 		</ul>
 		<!-- <div class="forgetPsd">
@@ -37,6 +38,7 @@
 
 <script>
 	import Vcode from './Vcode'
+	import { Toast } from 'mint-ui';
 	
 export default {
   name: '',
@@ -46,7 +48,8 @@ export default {
 	  code: '',
 	  tip1: false,
 	  tip2: false,
-	  tip3: false
+	  tip3: false,
+	  tip4: false
     }
   },
   components: {
@@ -91,6 +94,11 @@ export default {
 			  	v : "1.0"
 			  })).then(res => {
 			  	console.log(res.result);
+				if(res.result){
+					Toast('发送成功');
+				}else{
+					Toast('发送超过次数,请稍后再试');
+				}
 			  }).catch(err => {
 			  	console.log(err)
 			  });
@@ -98,8 +106,10 @@ export default {
 	  },
 	  // 点击登录 在点击登录之前 手机已经发送验证码
 	  handleLogin() {
-		  // 此时判断手机号和验证码是否为空即可
+		  // 此时判断手机号是否为空和验证码是否为空和是否正确
 		  if(!this.phone =="" && !this.code ==""){
+			  this.tip1 = false;
+			  this.tip3 = false;
 			  //都不为空时候 发送请求
 			  const sign2 = this.baseJs.getSign({
 			  	appKey : "daikuan",
@@ -118,7 +128,13 @@ export default {
 			  	sign : sign2,
 			  	v : "1.0"
 			  })).then(res => {
-			  	console.log(res);
+			  	// console.log(res);
+				if(res.resultCode != 7){
+					this.tip4 = false;
+				}else{
+					this.tip4 = true;
+					return false;
+				}
 				localStorage.setItem("mobile",res.resultData.mobile);
 				localStorage.setItem("sessionId",res.resultData.sessionId);
 				this.$router.push('/my');
@@ -126,7 +142,9 @@ export default {
 			  	console.log(err)
 			  });
 		  }else{
-			  return false;
+				  this.tip1 = true;
+				  this.tip3 = true;
+				  return false;
 		  }
 	  }
   }

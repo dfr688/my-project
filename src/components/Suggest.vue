@@ -22,13 +22,14 @@
 			</div>
 		</div>
 		<div class="btn">
-			<button>确定</button>
+			<button @click="sureBtn">确定</button>
 		</div>
   </div>
 </template>
 
 <script>
 	import Top from "./Top"
+	import { Toast } from 'mint-ui'
 	
 export default {
   name: '',
@@ -39,6 +40,12 @@ export default {
   },
   components: {
 	  Top
+  },
+  methods: {
+	  sureBtn() {
+		  Toast("感谢您的宝贵建议！");
+		  this.$router.push("/my");
+	  }
   }
 }
 </script>

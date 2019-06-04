@@ -2,14 +2,14 @@
   <div class="Set">
 		<Top>设置</Top>
 		<ul>
-			<li>
+			<!-- <li>
 				<router-link to="/modify">
 					<p>修改密码</p>
 					<div>
 						<i></i>
 					</div>
 				</router-link>
-			</li>
+			</li> -->
 			<li>
 				<p>版本信息</p>
 				<div>
@@ -18,7 +18,7 @@
 			</li>
 		</ul>
 		<div class="signOut">
-			<a href="#">退出登录</a>
+			<a href="javascript:void(0);" @click="signOut">退出登录</a>
 		</div>
   </div>
 </template>
@@ -34,6 +34,14 @@ export default {
   },
   components: {
 	  Top
+  },
+  methods: {
+	  signOut() {
+	  	  // 点击退出登录 清除缓存 跳转到我的页面
+	  	  localStorage.removeItem("mobile");
+	  	  localStorage.removeItem("sessionId");
+	  	  this.$router.push("/my");
+	  }
   }
 }
 </script>

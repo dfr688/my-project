@@ -90,32 +90,20 @@ export default {
  		$route(to,from){
  			// console.log(to);
  			// console.log(from);
- 			if(to.name == "home"){
-				this.imgs.forEach(item=>{
+			this.imgs.forEach(item=>{
 				item.isSee = true;
 				item.isShow = false;
-				});
+			});
+ 			if(to.name == "home"){
 				this.imgs[0].isSee = false;
 				this.imgs[0].isShow = true;
  			}else if(to.name == "loan"){
-				this.imgs.forEach(item=>{
-					item.isSee = true;
-					item.isShow = false;
-				});
 				this.imgs[1].isSee = false;
 				this.imgs[1].isShow = true;
 			}else if(to.name == "commend"){
-				this.imgs.forEach(item=>{
-					item.isSee = true;
-					item.isShow = false;
-				});
 				this.imgs[2].isSee = false;
 				this.imgs[2].isShow = true;
 			}else{
-				this.imgs.forEach(item=>{
-					item.isSee = true;
-					item.isShow = false;
-				});
 				this.imgs[3].isSee = false;
 				this.imgs[3].isShow = true;
 			}

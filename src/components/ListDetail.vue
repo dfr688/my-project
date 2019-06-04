@@ -18,9 +18,9 @@ export default {
   data () {
     return {
       tit: "",
-			goodsId: '',
-			imgIp: '',
-			itemLists : itemLists
+	  goodsId: '',
+	  imgIp: '',
+	  itemLists : itemLists
     }
   },
 	components: {

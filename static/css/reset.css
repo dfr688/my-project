@@ -9,6 +9,24 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li,
 	outline:none;
 	background: none;
 }
+/* 禁止触发手机自带的菜单 */
+*{  
+	  -webkit-touch-callout:none;  /*系统默认菜单被禁用*/   
+	  -webkit-user-select:none; /*webkit浏览器*/   
+	  -khtml-user-select:none; /*早期浏览器*/   
+	  -moz-user-select:none;/*火狐*/   
+	  -ms-user-select:none; /*IE10*/   
+	  user-select:none;   
+} 
+input{  
+	-webkit-user-select:auto; /*webkit浏览器*/     
+}
+textarea{
+	-webkit-user-select:auto; /*webkit浏览器*/
+}
+/* 禁止长按图片出现手机自带菜单 */
+img{ pointer-events: none; }
+
 body{
 	font-family: PingFang SC Medium;
 	background: #f3f3f3; 
@@ -84,3 +102,6 @@ label{
 		text-align: center!important;
 		font-size: .3rem!important;
 	}
+.mint-loadmore-text{
+	font-size: .36rem!important;
+}

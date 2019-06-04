@@ -9,12 +9,12 @@
 					<img :src="all.imagePrefix + all.lenderLogo" alt="">
 				</div>
 				<span>{{ all.lenderName }}</span>
-				<p v-html="all.description"></p>
-				<ul>
+				<!-- <p v-html="all.description"></p> -->
+				<!-- <ul>
 					<li>高成功率</li>
 					<li>秒到账</li>
 					<li>新口子</li>
-				</ul>
+				</ul> -->
 			</div>
 			<div class="bottom">
 				<ul>
@@ -49,12 +49,12 @@
 				</li>
 				<li class="pay">
 					<p><i></i>产品说明</p>
-					<span>分期付款/一次性还清</span>
+					<span v-html="all.description"></span>
 				</li>
 			</ul>
 		</div>
 		<div class="applyFor">
-			<a href="#">立即申请</a>
+			<a href="javascript:void(0);" @click="goPage">立即申请</a>
 		</div>
   </div>
 </template>
@@ -71,6 +71,9 @@ export default {
 	methods: {
 		returnBack() {
 			window.history.back();
+		},
+		goPage() {
+			this.$router.push({name:'other',params:{url:this.all.spreadUrl,tit:this.all.lenderName}});
 		}
 	},
 	created() {
@@ -80,16 +83,15 @@ export default {
 			appKey : "daikuan",
 			format : "json",
 			method : "qxf.lender.details",
-			myParams : "{\"lenderId\":\"10891\",\"pkg\":\"bixuyouqian\"}",
+			myParams : "{\"lenderId\":\""+this.detailId+"\",\"pkg\":\"bixuyouqian\"}",
 			pkg : "qianqianqianqian",
 			v : "1.0"
 		});
-		if(this.detailId == "10891"){
-			this.baseJs.postReq(JSON.stringify({
+		this.baseJs.postReq(JSON.stringify({
 				appKey : "daikuan",
 				format : "json",
 				method : "qxf.lender.details",
-				myParams : "{\"lenderId\":\"10891\",\"pkg\":\"bixuyouqian\"}",
+				myParams : "{\"lenderId\":\""+this.detailId+"\",\"pkg\":\"bixuyouqian\"}",
 				pkg : "qianqianqianqian",
 				sign : sign1,
 				v : "1.0"
@@ -100,7 +102,6 @@ export default {
 			}).catch(err => {
 				console.log(err)
 			});
-		}
 	}
 }
 </script>

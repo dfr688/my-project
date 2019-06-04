@@ -13,7 +13,6 @@ Vue.prototype.baseJs = baseJS
 Vue.config.productionTip = false
 
 
-
 // 使用MintUi框架
 import Mint from 'mint-ui'
 Vue.use(Mint)

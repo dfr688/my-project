@@ -2,14 +2,14 @@
   <div class="my">
 		<Top>我的</Top>
 		<div class="headPortrait">
-			<div class="image" @click.stop="uploadHeadImg">
+			<div class="image">
 				<!-- 图片地址动态绑定 -->
-				<img :src="userInfo.avatar" alt="">
+				<img src="../assets/images/head_02.png" alt="">
 			</div>
-			<input type="file" accept="image/*" @change="handleFile" class="hiddenInput"/>
+			<!-- <input type="file" accept="image/*" @change="handleFile" class="hiddenInput"/> -->
 			<div class="personalInfo" v-show="showUp">
 				<!-- <p class="name">张三</p> -->
-				<p class="phone"><span></span>188856923271</p>
+				<p class="phone"><span></span>{{ this.mobile }}</p>
 			</div>
 			<div class="clickLogin" v-show="!showUp">
 				<router-link to="/login">请点击登录</router-link>
@@ -71,9 +71,9 @@ export default {
   data () {
     return {
       showUp: false,
-	  userInfo: {
-	    avatar: require('../assets/images/head_02.png')
-	  },
+// 	  userInfo: {
+// 	    avatar: require('../assets/images/head_02.png')
+// 	  },
 	  mobile:''
     }
   },
@@ -82,20 +82,20 @@ export default {
   },
   methods: {
     // 打开图片上传
-    uploadHeadImg: function () {
-      this.$el.querySelector('.hiddenInput').click()
-    },
+//     uploadHeadImg: function () {
+//       this.$el.querySelector('.hiddenInput').click()
+//     },
     // 将头像显示
-    handleFile: function (e) {
-      let $target = e.target || e.srcElement
-      let file = $target.files[0]
-      var reader = new FileReader()
-      reader.onload = (data) => {
-        let res = data.target || data.srcElement
-        this.userInfo.avatar = res.result
-      }
-      reader.readAsDataURL(file)
-    }
+//     handleFile: function (e) {
+//       let $target = e.target || e.srcElement
+//       let file = $target.files[0]
+//       var reader = new FileReader()
+//       reader.onload = (data) => {
+//         let res = data.target || data.srcElement
+//         this.userInfo.avatar = res.result
+//       }
+//       reader.readAsDataURL(file)
+//     }
   },
   created() {
 	  this.mobile = localStorage.getItem("mobile");

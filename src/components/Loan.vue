@@ -19,7 +19,7 @@
 							 </ul>
 						 </div>
 					 </li>
-					  <li class="two">
+					 <li class="two">
 						 <input type="text" v-model="textTwo" readonly @click="showTwo" onfocus="this.blur()"/><i></i>
 						 <div v-show="isTwo">
 							 <ul>
@@ -29,7 +29,7 @@
 							 </ul>
 						 </div>
 					</li>
-					  <li class="three">
+					 <li class="three">
 						 <input type="text" v-model="textThree" readonly @click="showThree" onfocus="this.blur()"/><i></i>
 						 <div v-show="isThree">
 							 <ul>
@@ -44,31 +44,60 @@
 		 </div>
 	</div>
 	 <!-- 列表 -->
-	 <List :giveData="isShow"></List>
+	<ul>
+	 	<li v-for="(detail,index) in detailItems" :key="detail.id">
+	 		<router-link :to="{name: 'detail',params:{id: detail.id}}">
+	 			<div class='picture'>
+	 				<div>
+	 					<img :src="imagePrefix + detail.lenderLogo" alt=""/>
+	 				</div>
+	 			</div>
+	 			<div class="intro">
+	 				<div class="message">
+	 					<p class="zfb">{{ detail.title }}</p>
+	 					<p class="date"><span>日利率：{{ detail.lenderRate }}</span></p>
+	 					<p class="tips">{{ detail.lendertip }}</p>
+	 				</div>
+	 				<div class="apply">
+	 					<p class="most">最高可借</p>
+	 					<p class="money">￥ {{ detail.lenderMaxMoney }}</p>
+	 					<router-link :to="{name: 'detail',params:{id: detail.id}}">立即申请</router-link>
+	 				</div>
+	 			</div>
+	 		</router-link>
+	 	</li>
+	</ul>
   </div>
 </template>
 
 <script>
 	import List from './List'
 	import Top from './Top'
+	import {getReq}  from '../api/index'
 	
-	const textFirsts = ["全部","1千以下","1千-5千","5千-1万","2万以上"]
-	const textSeconds = ["全部","0.0003%","0.03%"]
-	const textThrees = ["全部","1-3个月","3-9个月"," 9-12个月","更长时间"]
+	const textFirsts = ["全部","1千以下","1千-5千","5千-1万","1万以上"];
+	const textSeconds = ["全部","芝麻分","小额贷"];
+	const textThrees = ["全部","0~0.005%","0.005%~0.01%","0.01%~0.05%","0.05%以上"];
+	
+	const detailItems = [];
 export default {
 	name: '',
 	data () {
 		return {
-			isShow: true,
 			isOne: false,
 			isTwo: false,
 			isThree: false,
 			textOne: "额度",
-			textTwo: "利率",
-			textThree: "期限",
+			textTwo: "类型",
+			textThree: "利率",
 			textFirsts: textFirsts,
 			textSeconds: textSeconds,
-			textThrees: textThrees
+			textThrees: textThrees,
+			detailItems: detailItems,
+			item1: 0,
+			item2: 0,
+			item3: 0,
+			imagePrefix: "http://211.149.225.239:9992/resource/"
 		}
 	},
 	components: {
@@ -76,9 +105,9 @@ export default {
 		Top
 	},
 	methods: {
-		toSearch() {
-			this.$router.push({name: "search"});
-		},
+// 		toSearch() {
+// 			this.$router.push({name: "search"});
+// 		},
 		// 点击额度
 		showOne() {
 			this.isOne =!this.isOne;
@@ -89,8 +118,18 @@ export default {
 			// console.log(index);
 			this.textOne = textFirsts[index];
 			this.isOne = false;
+			this.item1 = index;
+			// 发送请求
+			this.baseJs.getReq("/api/SelectCondition",{para1:this.item1,para2:this.item2,para3:this.item3,pkg:"xiaozhubaika5.8"})
+			.then(res => {
+				// console.log(res);
+				this.detailItems = res;
+			})
+			.catch(err => {
+				console.log(err);
+			});
 		},
-		// 点击利率
+		// 点击类型
 		showTwo() {
 			this.isTwo =!this.isTwo;
 			this.isOne = false;
@@ -99,6 +138,16 @@ export default {
 		chooseItem1(index) {
 			this.textTwo = textSeconds[index];
 			this.isTwo = false;
+			this.item2 = index;
+			// 发送请求
+			this.baseJs.getReq("/api/SelectCondition",{para1:this.item1,para2:this.item2,para3:this.item3,pkg:"xiaozhubaika5.8"})
+			.then(res => {
+				// console.log(res);
+				this.detailItems = res;
+			})
+			.catch(err => {
+				console.log(err);
+			});
 		},
 		// 点击期限
 		showThree() {
@@ -109,12 +158,33 @@ export default {
 		chooseItem2(index) {
 			this.textThree = textThrees[index];
 			this.isThree = false;
+			this.item3 = index;
+			// 发送请求
+			this.baseJs.getReq("/api/SelectCondition",{para1:this.item1,para2:this.item2,para3:this.item3,pkg:"xiaozhubaika5.8"})
+			.then(res => {
+				// console.log(res);
+				this.detailItems = res;
+			})
+			.catch(err => {
+				console.log(err);
+			});
 		},
 		// 点击返回
 		returnGo() {
 			window.history.back();
 		}
 		
+	},
+	created() {
+		this.baseJs.getReq("/api/SelectCondition",{para1:0,para2:0,para3:0,pkg:"xiaozhubaika5.8"})
+		.then(res => {
+			// console.log(res);
+			this.detailItems = res;
+			// console.log(this.detailItems);
+		})
+		.catch(err => {
+			console.log(err);
+		})
 	}
 }
 </script>

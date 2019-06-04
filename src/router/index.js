@@ -4,26 +4,20 @@ import Home from '@/components/Home'  //@代表src文件
 import Loan from '@/components/Loan'
 import Commend from '@/components/Commend'
 import My from '@/components/My'
-import Info from '@/components/Info'
-import Credit from "@/components/Credit"
-import Collection from "@/components/Collection"
 import Problem from "@/components/Problem"
 import Suggest from "@/components/Suggest"
 import About from "@/components/About"
 import Set from "@/components/Set"
-import Modify from "@/components/Modify"
 import Detail from "@/components/Detail"
 import Login from "@/components/Login"
-import Register from "@/components/Register"
-import Forget from "@/components/Forget"
-import Search from "@/components/Search"
 import listDetail from "@/components/listDetail"
 import listDetail1 from "@/components/listDetail1"
+import Other from "@/components/Other"
 
 Vue.use(Router)
 
 // 配置路由
-export default new Router({
+const router = new Router({
 	mode: "history",
 	routes: [
 		{
@@ -38,7 +32,10 @@ export default new Router({
 		{
 			path: '/detail/:id',
 			name: "detail",
-			component: Detail
+			component: Detail,
+// 			meta: {
+// 				requiresAuth: true
+// 			}
 		},
 		{
 			path: '/listdetail/:goodsId/:subject',
@@ -46,7 +43,7 @@ export default new Router({
 			component: listDetail
 		},
 		{
-			path: '/listdetail1',
+			path: '/listdetail1/:labelName/:id',
 			name: 'listdetail1',
 			component: listDetail1
 		},
@@ -54,11 +51,6 @@ export default new Router({
 			path: '/loan',
 			name: 'loan',
 			component: Loan
-		},
-		{
-			path: '/search',
-			name: 'search',
-			component: Search
 		},
 		{
 			path: '/commend',
@@ -73,26 +65,6 @@ export default new Router({
 		{
 			path: '/login',
 			component: Login
-		},
-		{
-			path: '/register',
-			component: Register
-		},
-		{
-			path: '/forget',
-			component: Forget
-		},
-		{
-			path: '/info',
-			component: Info
-		},
-		{
-			path: '/credit',
-			component: Credit
-		},
-		{
-			path: '/collection',
-			component: Collection
 		},
 		{
 			path: '/problem',
@@ -111,8 +83,29 @@ export default new Router({
 			component: Set,
 		},
 		{
-			path: '/modify',
-			component: Modify
+			path: '/other',
+			name: 'other',
+			component: Other
+		},
+		{
+			path: '*',
+			redirect: "/home"
 		}
 	]
-})
+});
+//  路由权限控制 进入Detail组件时候 需要登录状态
+//    	router.beforeEach((to,from,next) => {
+// 		// console.log(to.meta.requiresAuth)
+// 		if(to.meta.requiresAuth){
+// 			// 如果不为空 说明已经登录 直接放行
+// 			if(localStorage.getItem("mobile") != null && localStorage.getItem("sessionId") != null){
+// 				next();
+// 			}else{
+// 				next({path: "/login"});
+// 			}
+// 		}else{
+// 			next();
+// 		}
+//    	});
+ 
+export default router;

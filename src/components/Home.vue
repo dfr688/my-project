@@ -3,11 +3,13 @@
 		<div class="top">
 				<!-- 背景图片 -->
 				<div class="img">
-					<div>
-						<router-link to="/detail">
-							<img src="../assets/images/list_03.png" alt=""/>
-							<p>借贷宝</p>
-						</router-link>
+					<div class="wrap">
+						<div>
+							<router-link :to="{name:'detail',params:{id:bannerProduct.id}}">
+								<img :src="imagePre + bannerProduct.lenderLogo" alt=""/>
+								<p>{{ bannerProduct.title }}</p>
+							</router-link>
+						</div>
 					</div>
 				</div>
 				<!-- 列表导航 -->
@@ -30,50 +32,42 @@
 				</div>
 		</div>
 		<!-- 列表 为你推荐 -->
-		<div class="recommend">
+		<div class="recommend" v-for="(typeList,index) in typeLists" :key="typeList.id">
 			<div class="headTop clearfix">
 				<div class="headInfo fl">
 					<span class='line'></span>
-						<p class="tit">为你推荐</p>
+						<p class="tit">{{ typeList.lableName }}</p>
 						<p class="mes">
 							<span class="fea" v-for='(feature,index) in features' :key='index'>{{ feature.f1 }}</span>
 						</p>
 				</div>
 				<div class="more fr">
-					<router-link to="/listdetail1">更多</router-link>
+					<router-link :to="{name:'listdetail1',params:{labelName:typeList.lableName,id:typeList.id}}">更多</router-link>
 				</div>
 			</div>
-			<List></List>
-		</div>
-		<div class="recommend">
-			<div class="headTop clearfix">
-				<div class="headInfo fl">
-					<span class='line'></span>
-						<p class="tit">为你推荐</p>
-						<p class="mes">
-							<span class="fea" v-for='(feature,index) in features' :key='index'>{{ feature.f1 }}</span>
-						</p>
-				</div>
-				<div class="more fr">
-					<router-link to="/listdetail1">更多</router-link>
-				</div>
-			</div>
-			<List></List>
-		</div>
-		<div class="recommend">
-			<div class="headTop clearfix">
-				<div class="headInfo fl">
-					<span class='line'></span>
-						<p class="tit">为你推荐</p>
-						<p class="mes">
-							<span class="fea" v-for='(feature,index) in features' :key='index'>{{ feature.f1 }}</span>
-						</p>
-				</div>
-				<div class="more fr">
-					<router-link to="/listdetail1">更多</router-link>
-				</div>
-			</div>
-			<List></List>
+			<ul>
+				<li v-for="( item,index) in typeList.items" :key="item.id">
+					<router-link :to="{name: 'detail',params:{id: item.id}}">
+						<div class='picture'>
+							<div>
+								<img :src="imagePrefix + item.lenderLogo" alt=""/>
+							</div>
+						</div>
+						<div class="intro">
+							<div class="message">
+								<p class="zfb">{{ item.lendername }}</p>
+								<p class="date"><span>日利率：{{ item.lenderRate }}</span></p>
+								<p class="tips">{{ item.lenderTip }}</p>
+							</div>
+							<div class="apply">
+								<p class="most">最高可借</p>
+								<p class="money">￥ {{ item.lenderMaxMoney }}</p>
+								<router-link :to="{name: 'detail',params:{id: item.id}}">立即申请</router-link>
+							</div>
+						</div>
+					</router-link>
+				</li>
+			</ul>
 		</div>
 		<!-- 猜你喜欢 -->
 		<div class="loves">
@@ -141,6 +135,7 @@
 	import List from './List'
 	import {getSign} from '../api/index'
 	import {postReq} from '../api/index'
+	import {getReq}  from '../api/index'
 	
 	
 	const lists = [];
@@ -150,17 +145,20 @@
 		{ f1: '利息低' },
 		{ f1: '放款快' }
 	]
-	
-	
+	const typeLists = [];
+	const bannerProduct = [];
 export default {
   name: '',
   data () {
     return {
+	  bannerProduct: bannerProduct,
 	  infos: infos,
-      lists: lists,
+    lists: lists,
 	  imagePrefix: '',
 	  features: features,
-	  popupVisible: false
+	  typeLists: typeLists,
+	  popupVisible: "",
+	  imagePre: "http://211.149.225.239:9992/resource/"
     }
   },
   components: {
@@ -186,6 +184,16 @@ export default {
 	}
 },
 created() {
+	// 第一次打开首页显示广告图 刷新首页页面和回退到首页时候都不会再出现 只有在重新打开app的时候才会弹出广告层 可以用sessionStorage
+	let value = null;
+	value = sessionStorage.getItem("firstLogin");
+	if(value == null){
+		this.popupVisible = true;
+		sessionStorage.setItem("firstLogin",true);
+	}else{
+		this.popupVisible = false;
+	}
+	
 	// 首页通知公告
 	// 先获取sign值
 	const sign1 = this.baseJs.getSign({
@@ -234,11 +242,29 @@ created() {
 		// console.log(res);
 		this.lists = res.resultData.items;
 		this.imagePrefix = res.resultData.imagePrefix;
-		// console.log(this.imagePrefix);
+		//console.log(this.imagePrefix);
 		// console.log(this.lists);
 	}).catch(err => {
 		console.log(err)
 	});
+	// get 请求 列表分类
+	this.baseJs.getReq("/api/newLabel",{pkg:'xiaozhubaika5.8'}).then(res => {
+		// console.log(res);
+		this.typeLists = res;
+		// console.log(this.typeLists);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+// 	// banner图中的产品
+ 	this.baseJs.getReq("/api/switchOne",{pkg:"xiaozhubaika5.8"}).then(res => {
+ 		// console.log(res[0]);
+ 		this.bannerProduct = res[0];
+ 		// console.log(this.bannerProduct);
+ 	})
+ 	.catch(err => {
+ 		console.log(err);
+ 	});
 },
 mounted() {
 	this.useSwiper();

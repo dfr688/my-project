@@ -12,11 +12,18 @@
 	text-align: center;
 	position: relative;
 }
-.home .top .img div{
+.home .top .img .wrap{
+	width: 1.2rem;
+	height: 1.04rem;
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: center;
 	position: absolute;
 	top: 3.1rem;
 	left: 50%;
-	margin-left: -.36rem;
+	margin-left: -.6rem;
+}
+.home .top .img div{
 	font-size: .24rem;
 }
 .home .top .img div a{
@@ -76,8 +83,9 @@
 /* 为你推荐 */
 .home .recommend{
 	background: #fff;
-	margin-top: .2rem;
 	padding-top: .16rem;
+	padding-bottom: .2rem;
+	margin-bottom: .2rem;
 }
 .home .recommend .headTop{
 	position: relative;
@@ -192,3 +200,97 @@ canvas{
 	width: 5.75rem;
 	height: 3rem;
 }
+
+
+
+
+.recommend ul li{
+	background: #fff;
+	padding: 0 .4rem;
+	margin-top: .2rem;
+}
+.recommend ul li a{
+	display: flex;
+}
+.recommend ul li.listItem{
+	margin-top: .2rem;
+}
+.recommend ul li .picture{
+	flex: 1;
+}
+.recommend ul li .picture div{
+	width: .8rem;
+	height: .8rem;
+}
+.recommend ul li .picture img{
+	width: .8rem;
+	height: .8rem;
+}
+.recommend ul li .intro{
+	display: flex;
+	padding-bottom: .15rem;
+	margin-top: .2rem;
+	flex: 5.5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.recommend ul li .introYes{
+	border-bottom:none;
+}
+.recommend ul li .intro .message{
+	flex: 3;
+}
+.recommend ul li .intro .message .zfb{
+	font-size: .32rem;
+	color: #0a0a0a;
+	font-weight: bold;
+	margin-bottom: .16rem;
+}
+.recommend ul li .intro .message .date{
+	font-size: .24rem;
+	color: #666;
+	margin-bottom: .2rem;
+}
+.recommend ul li .intro .message .tips{
+	font-size: .2rem;
+	color: #333;
+	background: #eee;
+	width: 4rem;
+	height: .3rem;
+	text-align: center;
+	line-height: .3rem;
+	border-radius: .05rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.recommend ul li .intro .apply{
+	flex: 1;
+	text-align: right;
+}
+.recommend ul li .intro .apply .most{
+	font-size: .22rem;
+	color: #666;
+}
+.recommend ul li .intro .apply .money{
+	font-size: .28rem;
+	color: #ff0000;
+	margin-bottom: -.6rem;
+	margin-top: .1rem;
+}
+.recommend ul li .intro .apply a{
+	color: #fff;
+	font-size: .24rem;
+	display: inline-block;
+	width: 1.27rem;
+	height: .45rem;
+	line-height: .45rem;
+	text-align: center;
+	background-image: linear-gradient(0deg, #433ded 0%, #524bf6 100%), linear-gradient(#398de3, #398de3);
+	border-radius: .23rem;
+}
+/* 底部导航盖住页面内容 */
+.home:after {
+ 	content: ''; 
+ 	display: block; 
+ 	height: 50px; 
+ }

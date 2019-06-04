@@ -41,7 +41,8 @@
 	display: inline-block;
 	width: .25rem;
 	height: .35rem;
-	border: 1px solid #eee;
+	background: url(../../src/assets/images/phone.png) no-repeat left top;
+	background-size: 100%;
 	margin-right: .1rem;
 }
 .my .headPortrait .clickLogin{
